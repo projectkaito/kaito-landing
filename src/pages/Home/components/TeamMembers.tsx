@@ -19,8 +19,8 @@ const TeamMembers: React.FC<Props> = () => {
 
   return (
     <div className={classes.root}>
-      <Container style={{ maxWidth: 1200 }}>
-        <Grid container spacing={4}>
+      <Container maxWidth="md">
+        <Grid container spacing={3}>
           <Grid item xs={12} sm={6} md={4}>
             <TeamMemberCard
               image={Kaito}

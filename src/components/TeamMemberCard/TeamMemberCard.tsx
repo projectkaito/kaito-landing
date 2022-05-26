@@ -26,6 +26,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   contentContainer: {
     border: `2px solid ${theme.palette.primary.main}`,
     padding: "16px 24px",
+    paddingRight: 10,
     borderTop: "0px",
     display: "flex",
     justifyContent: "space-between",
@@ -61,7 +62,7 @@ const TeamMemberCard: React.FC<Props> = ({ image, name, designation, instagram, 
       <img src={image} alt="" className={classes.img} />
       <div className={classes.contentContainer}>
         <div className={classes.contentWrapper}>
-          <Typography variant="h4" color="primary" align="left" className={classes.title}>
+          <Typography variant="h6" color="primary" align="left" className={classes.title}>
             {name}
           </Typography>
           <Typography>{designation}</Typography>
