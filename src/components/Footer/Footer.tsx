@@ -32,13 +32,14 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 interface Props {
   style?: CSSProperties;
+  id?: string;
 }
 
-const Footer: React.FC<Props> = ({ style }) => {
+const Footer: React.FC<Props> = ({ style, id }) => {
   const classes = useStyles();
 
   return (
-    <div className={classes.root} style={style}>
+    <div className={classes.root} style={style} id={id}>
       <div className="center" style={{ height: "100%" }}>
         <div style={{ width: "100%" }}>
           <div className="center">

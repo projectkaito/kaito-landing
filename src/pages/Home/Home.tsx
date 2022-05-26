@@ -50,7 +50,7 @@ const Home: React.FC<Props> = () => {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
+    <div className={classes.root} id="about">
       <Container maxWidth="xl" disableGutters>
         <Grid container justifyContent={"center"} alignItems={"center"} spacing={2}>
           <Grid item md={5}>
@@ -75,7 +75,7 @@ const Home: React.FC<Props> = () => {
             {/* </div> */}
           </Grid>
         </Grid>
-        <div className={classes.roadmap}>
+        <div className={classes.roadmap} id="roadmap">
           <Typography variant="h1" className={classes.title}>
             Roadmap
           </Typography>
@@ -83,7 +83,7 @@ const Home: React.FC<Props> = () => {
             <RoadmapTabs />
           </div>
         </div>
-        <div className={classes.roadmap}>
+        <div className={classes.roadmap} id="team">
           <Typography variant="h2">
             <b>TeamMembers</b>
           </Typography>
@@ -92,7 +92,7 @@ const Home: React.FC<Props> = () => {
           </div>
         </div>
       </Container>
-      <Footer style={{ paddingTop: "20vh", marginTop: "-20vh" }} />
+      <Footer style={{ paddingTop: "20vh", marginTop: "-20vh" }} id="contact" />
     </div>
   );
 };

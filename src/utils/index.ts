@@ -41,3 +41,11 @@ export const shapeFormData = (data: any) => {
   }
   return formData;
 };
+
+export const scrollIntoView = (id: string) => {
+  const element = document.getElementById(id);
+  const offset = element?.offsetTop;
+  if (element && offset) {
+    window.scrollTo(0, offset);
+  }
+};

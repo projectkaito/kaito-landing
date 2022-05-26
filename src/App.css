@@ -17,6 +17,7 @@
   --shadow-color: rgba(182, 84, 114, 0.4);
   --btn-color: #D3165E;
   --bg-color: #141218;
+  --neon-text-color: rgb(255, 18, 93);
 }
 body {
   overflow-x: hidden;

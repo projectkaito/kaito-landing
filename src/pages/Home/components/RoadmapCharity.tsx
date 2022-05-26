@@ -68,7 +68,7 @@ const RoadmapCharity: React.FC<Props> = () => {
   return (
     <Container maxWidth="lg">
       <div className={classes.root}>
-        <img src={RoadMapWhole} alt="" className={classes.img} />
+        <img src={RoadMapWhole} alt="" className={classes.img} style={{ maxWidth: 900, margin: "auto" }} />
         <RoadmapContent className={classes.content} position="June" description={"Community voiceover auditions"} />
         <RoadmapContent
           className={classes.content}

@@ -5,6 +5,7 @@ import Burger from "react-css-burger";
 import { useNavigate } from "react-router-dom";
 import { Remove } from "@mui/icons-material";
 import clsx from "clsx";
+import { scrollIntoView } from "src/utils";
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {},
@@ -52,7 +53,7 @@ const BurgerMenu: React.FC<Props> = ({ links }) => {
 
   const handleLinkClick = async (id: string) => {
     toggleDrawer("top", false)(undefined);
-    id[0] === "/" ? navigate(id) : window.open(id, "_blank");
+    scrollIntoView(id);
   };
 
   return (

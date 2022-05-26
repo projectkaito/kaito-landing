@@ -5,6 +5,7 @@ import logo from "src/assets/logos/logo.png";
 import { useNavigate } from "react-router-dom";
 import clsx from "clsx";
 import BurgerMenu from "src/components/BurgerMenu/BurgerMenu";
+import { scrollIntoView } from "src/utils";
 
 // import { batch } from "react-redux";
 
@@ -83,7 +84,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   hideSmDown: {
     display: "flex",
-    gap: 10,
+    gap: 15,
     [theme.breakpoints.down("md")]: {
       display: "none",
     },
@@ -132,7 +133,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     boxShadow: "none",
     pointerEvents: "none",
     [theme.breakpoints.up("md")]: {
-      background: "transparent !important",
+      // background: "transparent !important",
     },
   },
   navContainer: {
@@ -144,6 +145,39 @@ const useStyles = makeStyles((theme: Theme) => ({
     background: "linear-gradient(180deg, rgba(0,0,0,1), rgba(0,0,0,0))",
     // backdropFilter: "blur(5px)",
     // boxShadow: "0px 5px 20px rgba(0,0,0,0.3)",
+  },
+  navlink: {
+    color: "white",
+    cursor: "pointer",
+    animation: "$navlink 1.5s infinite alternate",
+    position: "relative",
+    "&:after": {
+      content: "''",
+      position: "absolute",
+      bottom: -5,
+      left: 0,
+      height: 3,
+      width: "0%",
+      background: theme.palette.primary.main,
+      transition: "all 0.2s ease-in-out",
+    },
+    "&:hover:after": {
+      width: "100%",
+    },
+  },
+  "@keyframes navlink": {
+    "0%, 19%, 21%, 23%, 25%, 54%, 56%, 100%": {
+      textShadow: `-0.1rem -0.1rem 0.5rem #fff,
+      0.1rem 0.1rem 0.5rem #fff,
+      0 0 1rem ${theme.palette.primary.main},
+      0 0 2rem ${theme.palette.primary.main},
+      0 0 3rem ${theme.palette.primary.main},
+      0 0 4rem ${theme.palette.primary.main},
+      0 0 5rem ${theme.palette.primary.main}`,
+    },
+    "20%, 24%, 55%": {
+      textShadow: "none",
+    },
   },
 }));
 const max = window.innerHeight / 2 - 75;
@@ -190,17 +224,17 @@ const Navbar: React.FC<Props> = () => {
   }
 
   const links = [
-    ["Home", "/"],
-    ["Minting", "/minting"],
-    ["Whitelist", "/whitelist"],
-    ["NFT", "/nft/0x0/0"],
-    ["404", "/404"],
+    ["About", "about"],
+    ["Roadmap", "roadmap"],
+    ["Team", "team"],
+    ["Contact", "contact"],
   ];
 
   const navigate = useNavigate();
 
-  const linkClicked = (url: string) => {
-    url[0] === "/" ? navigate(url) : window.open(url, "_blank");
+  const linkClicked = (id: string) => {
+    // Scroll to element with id
+    scrollIntoView(id);
   };
 
   const classes = useStyles();
@@ -224,11 +258,11 @@ const Navbar: React.FC<Props> = () => {
       <div className={classes.navContainer}>
         <div ref={NavItemsRef} className={classes.navItems} style={{ opacity: 0 }}>
           <div className={classes.hideSmDown}>
-            <Button color="secondary">About</Button>
-            <Button color="secondary">Roadmap</Button>
-            <Button color="secondary">Purchase</Button>
-            <Button color="secondary">Team</Button>
-            <Button color="secondary">Mint!</Button>
+            {links.map(([name, url]) => (
+              <Typography key={url} className={classes.navlink} onClick={() => linkClicked(url)}>
+                {name}
+              </Typography>
+            ))}
           </div>
         </div>
       </div>
