@@ -58,7 +58,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     display: "flex",
     gap: "40px",
     transition: "opacity 100ms ease-in-out",
-    paddingRight: 30,
+    paddingRight: 50,
     pointerEvents: "all",
   },
   nav: {
@@ -84,7 +84,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   hideSmDown: {
     display: "flex",
-    gap: 15,
+    gap: 40,
     [theme.breakpoints.down("md")]: {
       display: "none",
     },
@@ -259,7 +259,7 @@ const Navbar: React.FC<Props> = () => {
         <div ref={NavItemsRef} className={classes.navItems} style={{ opacity: 0 }}>
           <div className={classes.hideSmDown}>
             {links.map(([name, url]) => (
-              <Typography key={url} className={classes.navlink} onClick={() => linkClicked(url)}>
+              <Typography key={url} variant="h6" className={classes.navlink} onClick={() => linkClicked(url)}>
                 {name}
               </Typography>
             ))}
