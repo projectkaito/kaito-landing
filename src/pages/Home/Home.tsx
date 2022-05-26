@@ -56,11 +56,11 @@ const Home: React.FC<Props> = () => {
           <Grid item md={5}>
             <div className={classes.leftContent}>
               <Typography variant="h1" className={classes.title}>
-                The Manifesto
+                Welcome to the Future
               </Typography>
-              <Typography variant="h4" color="primary" style={{ marginTop: 20 }}>
+              {/* <Typography variant="h4" color="primary" style={{ marginTop: 20 }}>
                 <b> Welcome to the Future</b>
-              </Typography>
+              </Typography> */}
               <Typography variant="body1" style={{ marginTop: 10 }}>
                 There’s no better time than now. There’s no better place than here. Project Kaito is on a mission to end
                 world hunger and we will not stop until world hunger is extinct. If you go the extra mile, proclaim your
