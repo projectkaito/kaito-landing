@@ -154,15 +154,30 @@ const useStyles = makeStyles((theme: Theme) => ({
     "&:after": {
       content: "''",
       position: "absolute",
-      bottom: -5,
-      left: 0,
+      bottom: -3,
+      left: "-10%",
       height: 3,
       width: "0%",
       background: theme.palette.primary.main,
       transition: "all 0.2s ease-in-out",
     },
     "&:hover:after": {
-      width: "100%",
+      width: "120%",
+    },
+    "&:before": {
+      content: "''",
+      position: "absolute",
+      top: -3,
+      left: "-10%",
+      height: 3,
+      width: "0%",
+      background: theme.palette.primary.main,
+      transition: "all 0.2s ease-in-out",
+      marginLeft: "100%",
+    },
+    "&:hover:before": {
+      width: "120%",
+      marginLeft: "0%",
     },
   },
   "@keyframes navlink": {

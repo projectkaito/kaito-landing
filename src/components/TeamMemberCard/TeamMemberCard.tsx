@@ -69,17 +69,17 @@ const TeamMemberCard: React.FC<Props> = ({ image, name, designation, instagram, 
         </div>
         <div>
           {instagram && (
-            <IconButton href="https://www.instagram.com/projectkaitonft/" color="secondary">
+            <IconButton href={instagram} target="_blank" color="secondary">
               <InstagramIcon fontSize="small" />
             </IconButton>
           )}
           {twitter && (
-            <IconButton color="secondary">
+            <IconButton href={twitter} target="_blank" color="secondary">
               <TwitterIcon fontSize="small" />
             </IconButton>
           )}
           {imdb && (
-            <IconButton color="secondary">
+            <IconButton href={imdb} target="_blank" color="secondary">
               <img src={ImdbImg} alt="imdb" height="13px" />
             </IconButton>
           )}
