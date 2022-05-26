@@ -58,7 +58,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     display: "flex",
     gap: "40px",
     transition: "opacity 100ms ease-in-out",
-    paddingRight: 20,
+    paddingRight: 30,
     pointerEvents: "all",
   },
   nav: {
