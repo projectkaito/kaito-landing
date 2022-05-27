@@ -35,11 +35,16 @@ const TeamMembers: React.FC<Props> = () => {
               image={Jake}
               name="Jake Lee"
               twitter="https://twitter.com/jakeleenft"
-              designation="Advisor"
+              designation="Administrator"
             />
           </Grid>
           <Grid item xs={12} sm={6} md={4}>
-            <TeamMemberCard image={Tobi} name={"Tobi Allen"} designation="Project Manager" />
+            <TeamMemberCard
+              image={Tobi}
+              name={"Tobi Allen"}
+              designation="Advisor"
+              twitter="https://twitter.com/toball"
+            />
           </Grid>
         </Grid>
       </Container>
