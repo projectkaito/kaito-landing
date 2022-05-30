@@ -24,8 +24,14 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   content: {
     width: "275px",
-    display: "flex",
-    flexDirection: "column",
+    display: "grid",
+    [theme.breakpoints.down("md")]: {
+      gridTemplateColumns: "1fr !important",
+      gridTemplateRows: "1fr 1fr !important",
+      "& img": {
+        maxHeight: 100,
+      },
+    },
   },
   description: {
     fontWeight: 400,
@@ -33,16 +39,30 @@ const useStyles = makeStyles((theme: Theme) => ({
 }));
 
 interface Props {
+  x?: number;
+  y?: number;
   image?: string;
   rank?: string | number;
   position?: string;
   description?: string;
   style?: React.CSSProperties | undefined;
-  imageHeight?: string;
   className?: string;
+  imageDirection?: "left" | "right";
+  imageTransform?: string;
 }
 
-const RoadmapContent: React.FC<Props> = ({ imageHeight, style, image, rank, position, description, className }) => {
+const RoadmapContent: React.FC<Props> = ({
+  x,
+  y,
+  style,
+  image,
+  rank,
+  position,
+  description,
+  className,
+  imageDirection = "left",
+  imageTransform = "",
+}) => {
   const classes = useStyles();
 
   return (
@@ -50,16 +70,42 @@ const RoadmapContent: React.FC<Props> = ({ imageHeight, style, image, rank, posi
       style={{
         display: "flex",
         gap: "15px",
+        position: "absolute",
+        top: `${y}%`,
+        left: `${x}%`,
         ...style,
       }}
       className={clsx(classes.contentWrapper, className)}
     >
-      <div className={classes.content}>
-        <Typography variant="h4">{rank}</Typography>
-        <Typography variant="h4" className={classes.position}>
-          {position}
-        </Typography>
-        <Typography className={classes.description}>{description}</Typography>
+      <div
+        className={classes.content}
+        style={{ gridTemplateColumns: imageDirection === "right" ? "1fr 80px" : "80px 1fr" }}
+      >
+        {imageDirection === "left" && (
+          <img
+            src={image}
+            alt=""
+            style={{ width: "100%", height: "100%", objectFit: "contain", transform: imageTransform }}
+          />
+        )}
+        <div>
+          <Typography variant="h4" align="center">
+            {rank}
+          </Typography>
+          <Typography variant="h4" className={classes.position} align="center">
+            {position}
+          </Typography>
+          <Typography className={classes.description} align="center">
+            {description}
+          </Typography>
+        </div>
+        {imageDirection === "right" && (
+          <img
+            src={image}
+            alt=""
+            style={{ width: "100%", height: "100%", objectFit: "contain", transform: imageTransform }}
+          />
+        )}
       </div>
     </div>
   );

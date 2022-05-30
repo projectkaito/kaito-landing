@@ -1,22 +1,13 @@
 import * as React from "react";
-// @ts-ignore
-import SwipeableViews from "react-swipeable-views";
-//@ts-check
 import { useTheme } from "@mui/material/styles";
 import AppBar from "@mui/material/AppBar";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
-import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import Roadmap from "./RoadmapAnime1";
 import { Button, Theme } from "@mui/material";
-import RoadmapAnime1 from "./RoadmapAnime1";
-import RoadmapAnime2 from "./RoadmapAnime2";
-import RoadmapAnime3 from "./RoadmapAnime3";
-import AnimeSeriesRoadmap from "./AnimeSeriesRoadmap";
 import { makeStyles } from "@mui/styles";
-import RoadmapCharity from "./RoadmapCharity";
-import RoadmapToken from "./RoadmapToken";
+import RoadmapComp from "./RoadmapComp";
+import roadmapData from "./roadmapData";
 
 const useStyles = makeStyles((theme: Theme) => ({
   roadmapHeading: {
@@ -106,20 +97,21 @@ export default function RoadmapTabs() {
         {/* <Typography color="primary" variant="h2" align="center" className={classes.roadmapHeading}>
           CharityRoadmap
         </Typography> */}
-        <RoadmapCharity />
+        <RoadmapComp bg={roadmapData.charity.bg} data={roadmapData.charity.data} />
       </TabPanel>
 
       <TabPanel value={value} index={1} dir={theme.direction}>
         {/* <Typography color="primary" variant="h2" align="center" className={classes.roadmapHeading}>
           Anime Series Roadmap
         </Typography> */}
-        <AnimeSeriesRoadmap />
+        <RoadmapComp bg={roadmapData.anime.bg} data={roadmapData.anime.data} />
       </TabPanel>
       <TabPanel value={value} index={2} dir={theme.direction}>
+        <RoadmapComp bg={roadmapData.token.bg} data={roadmapData.token.data} />
         {/* <Typography color="primary" variant="h2" align="center" className={classes.roadmapHeading}>
           TokenRoadmap
         </Typography> */}
-        <RoadmapToken />
+        {/* <RoadmapToken /> */}
       </TabPanel>
       {/* </SwipeableViews> */}
     </Box>

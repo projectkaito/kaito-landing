@@ -1,31 +1,27 @@
 import React from "react";
 import { makeStyles } from "@mui/styles";
-import { Theme, Typography } from "@mui/material";
+import { Container, Theme, Typography } from "@mui/material";
 import rocketImage from "src/assets/images/rocketImage.png";
 import roadmap from "src/assets/images/roadmap.png";
 import boy from "src/assets/images/boy.png";
 import crown from "src/assets/images/crown.png";
 import music11 from "src/assets/images/music11.png";
-import RoadMapWhole from "src/assets/images/roadmap_anime_3.png";
 import RoadmapContent from "./RoadmapContent";
+import roadmapData, { Roadmap } from "./roadmapData";
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
     marginTop: "94px",
     position: "relative",
-    background: `url(${RoadMapWhole})`,
-    backgroundSize: "contain",
-    backgroundPosition: "center",
-    backgroundRepeat: "no-repeat",
-    height: 500,
     display: "flex",
     flexFlow: "column",
     justifyContent: "space-between",
+    maxWidth: 700,
+    margin: "auto",
     [theme.breakpoints.down("lg")]: {
-      // height: "auto",
+      height: "auto",
     },
     [theme.breakpoints.down("md")]: {
-      height: "auto",
       flexFlow: "row",
       overflowY: "auto",
       maxWidth: "100%",
@@ -33,12 +29,6 @@ const useStyles = makeStyles((theme: Theme) => ({
       paddingBottom: 120,
     },
   },
-
-  roadmapImage: {},
-  positionOne: {},
-  positionTow: {},
-  positionThree: {},
-  positionFour: {},
 
   boxesContainer: {
     display: "none",
@@ -60,48 +50,37 @@ const useStyles = makeStyles((theme: Theme) => ({
     height: 50,
     background: "white",
   },
-  cmgSoon: {
-    paddingTop: 100,
-    paddingLeft: 50,
+  img: {
+    [theme.breakpoints.down("md")]: {
+      display: "none",
+    },
   },
 }));
 
-interface Props {}
+interface Props {
+  bg: string;
+  data: Roadmap[];
+}
 
-const RoadmapAnime3: React.FC<Props> = () => {
+const RoadmapComp: React.FC<Props> = ({ bg, data }) => {
   const classes = useStyles();
-
+  console.log(roadmapData);
   return (
-    <>
+    <Container maxWidth="lg">
       <div className={classes.root}>
-        <RoadmapContent
-          image={rocketImage}
-          style={{
-            maxWidth: "387px",
-            marginLeft: "calc(75% - 190px)",
-            marginTop: "15%",
-          }}
-          rank="Q1"
-          position="Items for further customization"
-          description={
-            "For the future that lies beyond this roadmap, we look forward to expanding the project along with our community to realize even greater ambitions for the Lives of Kaito universe!"
-          }
-        />
-        <RoadmapContent
-          image={crown}
-          style={{
-            maxWidth: "130px",
-            position: "absolute",
-            bottom: "20%",
-            left: "calc(17% - 65px)",
-          }}
-          className={classes.cmgSoon}
-          imageHeight="91px"
-          rank=""
-          position="Comming Soon"
-          description={""}
-        />
-
+        <img src={bg} alt="" className={classes.img} style={{ width: "80%", margin: "auto", paddingTop: 150 }} />
+        {data.map((item, i) => (
+          <RoadmapContent
+            key={i}
+            position={item.title}
+            description={item.description}
+            x={item.x}
+            y={item.y}
+            image={item.image}
+            imageDirection={item.imageDirection}
+            imageTransform={item.imageTransform}
+          />
+        ))}
         <div className={classes.boxesContainer}>
           <div className={classes.boxWrapper}>
             <div className={classes.box} />
@@ -113,20 +92,27 @@ const RoadmapAnime3: React.FC<Props> = () => {
             <div className={classes.box} />
             <div className={classes.box} />
           </div>
+          {new Array(data.length - 1).fill(undefined).map((item, i) => (
+            <>
+              <div className={classes.boxWrapper}>
+                <div className={classes.box} />
+              </div>
+              <div className={classes.boxWrapper}>
+                <div className={classes.box} />
+              </div>
+              <div className={classes.boxWrapper}>
+                <div className={classes.box} />
+              </div>
+              <div className={classes.boxWrapper}>
+                <div className={classes.box} />
+              </div>
+              <div className={classes.boxWrapper}>
+                <div className={classes.box} />
+                <div className={classes.box} />
+              </div>
+            </>
+          ))}
           <div className={classes.boxWrapper}>
-            <div className={classes.box} />
-          </div>
-          <div className={classes.boxWrapper}>
-            <div className={classes.box} />
-          </div>
-          <div className={classes.boxWrapper}>
-            <div className={classes.box} />
-          </div>
-          <div className={classes.boxWrapper}>
-            <div className={classes.box} />
-          </div>
-          <div className={classes.boxWrapper}>
-            <div className={classes.box} />
             <div className={classes.box} />
           </div>
           <div className={classes.boxWrapper}>
@@ -135,8 +121,8 @@ const RoadmapAnime3: React.FC<Props> = () => {
         </div>
         {/* <img src={RoadMapWhole} style={{ marginTop: "215px" }} alt="roadmap" className={classes.roadmapImage} /> */}
       </div>
-    </>
+    </Container>
   );
 };
 
-export default RoadmapAnime3;
+export default RoadmapComp;
