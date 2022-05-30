@@ -76,7 +76,6 @@ const roadmapData: RoadmapsData = {
         title: "2022Q3",
         description: "Kaito Anime Show Trailer Released",
         image: require("src/assets/images/music.png"),
-
         imageDirection: "right",
         x: -15,
         y: 35,
@@ -104,7 +103,7 @@ const roadmapData: RoadmapsData = {
     data: [
       {
         title: "June",
-        description: "Mint Staking commencies",
+        description: "Mint Staking Commencies",
         image: require("src/assets/images/clock.png"),
         imageDirection: "right",
         x: 30,
@@ -143,9 +142,10 @@ const roadmapData: RoadmapsData = {
       },
       {
         title: "2023Q3",
-        description: "Mental Health App Launch",
+        description: "Merch Launch",
         image: require("src/assets/images/rocket2.png"),
-        x: 85,
+        imageTransform: "scale(0.8) translateY(-20%) translateX(30%)",
+        x: 80,
         y: 70,
       },
       {

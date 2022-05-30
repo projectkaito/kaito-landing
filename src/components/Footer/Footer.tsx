@@ -7,6 +7,7 @@ import Instagram from "src/assets/images/icons/instagram.png";
 import Twitter from "src/assets/images/icons/twitter.png";
 import Youtube from "src/assets/images/icons/youtube.png";
 import Opensea from "src/assets/images/icons/opensea.png";
+import { INSTAGRAM, TWITTER } from "src/config/constants";
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
@@ -46,18 +47,18 @@ const Footer: React.FC<Props> = ({ style, id }) => {
             <img src={logo} alt="Kaito" />
           </div>
           <div className={classes.socialsContainer}>
-            <a href="#" target="_blank">
+            {/* <a href="#" target="_blank">
               <img src={Facebook} alt="facebook" />
-            </a>
-            <a href="#" target="_blank">
+            </a> */}
+            <a href={INSTAGRAM} target="_blank">
               <img src={Instagram} alt="instagram" />
             </a>
-            <a href="#" target="_blank">
+            <a href={TWITTER} target="_blank">
               <img src={Twitter} alt="twitter" />
             </a>
-            <a href="#" target="_blank">
+            {/* <a href="#" target="_blank">
               <img src={Youtube} alt="youtube" />
-            </a>
+            </a> */}
             <a href="#" target="_blank">
               <img src={Opensea} alt="opensea" />
             </a>
