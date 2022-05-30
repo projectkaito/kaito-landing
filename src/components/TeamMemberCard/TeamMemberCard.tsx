@@ -5,6 +5,7 @@ import CharImg from "src/assets/images/character.png";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import ImdbImg from "src/assets/icons/imdb.png";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
@@ -52,9 +53,10 @@ interface Props {
   twitter?: string;
   instagram?: string;
   imdb?: string;
+  linkedin?: string;
 }
 
-const TeamMemberCard: React.FC<Props> = ({ image, name, designation, instagram, twitter, imdb }) => {
+const TeamMemberCard: React.FC<Props> = ({ image, name, designation, instagram, twitter, imdb, linkedin }) => {
   const classes = useStyles();
 
   return (
@@ -76,6 +78,11 @@ const TeamMemberCard: React.FC<Props> = ({ image, name, designation, instagram, 
           {twitter && (
             <IconButton href={twitter} target="_blank" color="secondary">
               <TwitterIcon fontSize="small" />
+            </IconButton>
+          )}
+          {linkedin && (
+            <IconButton href={linkedin} target="_blank" color="secondary">
+              <LinkedInIcon fontSize="small" />
             </IconButton>
           )}
           {imdb && (

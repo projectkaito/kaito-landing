@@ -44,6 +44,7 @@ const TeamMembers: React.FC<Props> = () => {
               name={"Tobi Allen"}
               designation="Advisor"
               twitter="https://twitter.com/toball"
+              linkedin="https://www.linkedin.com/in/tobi-allen-m-eng-pgdip-40154039/?originalSubdomain=ca"
             />
           </Grid>
         </Grid>
