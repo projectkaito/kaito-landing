@@ -35,6 +35,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   description: {
     fontWeight: 400,
+    wordBreak: "break-all",
   },
 }));
 

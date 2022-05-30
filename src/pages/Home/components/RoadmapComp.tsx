@@ -8,6 +8,7 @@ import crown from "src/assets/images/crown.png";
 import music11 from "src/assets/images/music11.png";
 import RoadmapContent from "./RoadmapContent";
 import roadmapData, { Roadmap } from "./roadmapData";
+import { fakeEncrypter } from "src/utils";
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
@@ -64,7 +65,7 @@ interface Props {
 
 const RoadmapComp: React.FC<Props> = ({ bg, data }) => {
   const classes = useStyles();
-  console.log(roadmapData);
+  console.log(fakeEncrypter(data[0].description!));
   return (
     <Container maxWidth="lg">
       <div className={classes.root}>
@@ -73,7 +74,7 @@ const RoadmapComp: React.FC<Props> = ({ bg, data }) => {
           <RoadmapContent
             key={i}
             position={item.title}
-            description={item.description}
+            description={fakeEncrypter(item.description)}
             x={item.x}
             y={item.y}
             image={item.image}
@@ -93,7 +94,7 @@ const RoadmapComp: React.FC<Props> = ({ bg, data }) => {
             <div className={classes.box} />
           </div>
           {new Array(data.length - 1).fill(undefined).map((item, i) => (
-            <>
+            <React.Fragment key={i}>
               <div className={classes.boxWrapper}>
                 <div className={classes.box} />
               </div>
@@ -110,7 +111,7 @@ const RoadmapComp: React.FC<Props> = ({ bg, data }) => {
                 <div className={classes.box} />
                 <div className={classes.box} />
               </div>
-            </>
+            </React.Fragment>
           ))}
           <div className={classes.boxWrapper}>
             <div className={classes.box} />
