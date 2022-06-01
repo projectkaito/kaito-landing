@@ -61,7 +61,7 @@ interface Props {
 
 const RoadmapComp: React.FC<Props> = ({ bg, data }) => {
   const classes = useStyles();
-  console.log(fakeEncrypter(data[0].description!));
+
   return (
     <Container maxWidth="lg">
       <div className={classes.root}>
