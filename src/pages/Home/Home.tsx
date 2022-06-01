@@ -5,6 +5,8 @@ import nftImage from "src/assets/images/nftImage.png";
 import RoadmapTabs from "./components/RoadmapTabs";
 import Footer from "src/components/Footer/Footer";
 import TeamMembers from "./components/TeamMembers";
+import { RandomReveal } from "react-random-reveal";
+import clsx from "clsx";
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {},
@@ -56,11 +58,16 @@ const Home: React.FC<Props> = () => {
           <Grid item md={5}>
             <div className={classes.leftContent}>
               <Typography variant="h1" className={classes.title}>
-                Welcome to the Future
+                Welcome to the <br />{" "}
+                <RandomReveal
+                  characters={"Future"}
+                  isPlaying
+                  duration={2}
+                  revealDuration={0.5}
+                  onComplete={() => ({ shouldRepeat: true, delay: 3 })}
+                />
               </Typography>
-              {/* <Typography variant="h4" color="primary" style={{ marginTop: 20 }}>
-                <b> Welcome to the Future</b>
-              </Typography> */}
+
               <Typography variant="body1" style={{ marginTop: 10 }}>
                 There’s no better time than now. There’s no better place than here. Project Kaito is on a mission to end
                 world hunger and we will not stop until world hunger is extinct. If you go the extra mile, proclaim your
