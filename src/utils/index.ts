@@ -53,10 +53,9 @@ export const scrollIntoView = (id: string) => {
 };
 
 export const fakeEncrypter = (data: string = "") => {
-  const iv = CryptoJS.enc.Utf8.parse("1234567890123456");
   const encrypted = CryptoJS.DES.encrypt(data, process.env.REACT_APP_ENCRYPT_KEY as string);
   return shorten(encrypted.toString(), 30);
-  return encrypted.toString();
+  // return encrypted.toString();
 };
 
 // function to reduce string to length

@@ -1,11 +1,10 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { CSSProperties } from "react";
-import { Container, Theme, Typography } from "@mui/material";
+import { Theme, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import logo from "src/assets/logos/logo.png";
-import Facebook from "src/assets/images/icons/facebook.png";
 import Instagram from "src/assets/images/icons/instagram.png";
 import Twitter from "src/assets/images/icons/twitter.png";
-import Youtube from "src/assets/images/icons/youtube.png";
 import Opensea from "src/assets/images/icons/opensea.png";
 import { INSTAGRAM, TWITTER } from "src/config/constants";
 
@@ -51,7 +50,7 @@ const Footer: React.FC<Props> = ({ style, id }) => {
   const classes = useStyles();
   const ref = React.useRef<HTMLCanvasElement>(null);
 
-  const startAnimate = () => {
+  const startAnimate = React.useCallback(() => {
     if (!ref.current) return;
     let c = ref.current;
     var ctx = c.getContext("2d");
@@ -96,7 +95,7 @@ const Footer: React.FC<Props> = ({ style, id }) => {
       }
     }
     return draw;
-  };
+  }, [ref]);
 
   React.useEffect(() => {
     let draw = startAnimate();
@@ -104,7 +103,7 @@ const Footer: React.FC<Props> = ({ style, id }) => {
     return () => {
       clearInterval(int);
     };
-  }, []);
+  }, [startAnimate]);
 
   return (
     <div className={classes.root} style={style} id={id}>
@@ -118,16 +117,16 @@ const Footer: React.FC<Props> = ({ style, id }) => {
             {/* <a href="#" target="_blank">
               <img src={Facebook} alt="facebook" />
             </a> */}
-            <a href={INSTAGRAM} target="_blank">
+            <a href={INSTAGRAM} target="_blank" rel="noreferrer">
               <img src={Instagram} alt="instagram" />
             </a>
-            <a href={TWITTER} target="_blank">
+            <a href={TWITTER} target="_blank" rel="noreferrer">
               <img src={Twitter} alt="twitter" />
             </a>
-            {/* <a href="#" target="_blank">
+            {/* <a href="#" target="_blank" rel="noreferrer">
               <img src={Youtube} alt="youtube" />
             </a> */}
-            <a href="#" target="_blank">
+            <a href="#" target="_blank" rel="noreferrer">
               <img src={Opensea} alt="opensea" />
             </a>
           </div>

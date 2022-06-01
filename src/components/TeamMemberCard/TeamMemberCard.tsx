@@ -1,7 +1,6 @@
 import React from "react";
 import { makeStyles } from "@mui/styles";
 import { IconButton, Theme, Typography } from "@mui/material";
-import CharImg from "src/assets/images/character.png";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import ImdbImg from "src/assets/icons/imdb.png";

@@ -1,3 +1,5 @@
+/* eslint-disable react/jsx-pascal-case */
+
 import React, { FC } from "react";
 import { Dialog, DialogTitle, IconButton, Theme, DialogContent, Typography } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";

@@ -4,17 +4,15 @@ import AppBar from "@mui/material/AppBar";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
-import { Button, Theme } from "@mui/material";
-import { makeStyles } from "@mui/styles";
 import RoadmapComp from "./RoadmapComp";
 import roadmapData from "./roadmapData";
 
-const useStyles = makeStyles((theme: Theme) => ({
-  roadmapHeading: {
-    fontFamily: theme.fonts[0],
-    marginTop: 30,
-  },
-}));
+// const useStyles = makeStyles((theme: Theme) => ({
+//   roadmapHeading: {
+//     fontFamily: theme.fonts[0],
+//     marginTop: 30,
+//   },
+// }));
 interface TabPanelProps {
   children?: React.ReactNode;
   dir?: string;
@@ -49,15 +47,15 @@ function a11yProps(index: number) {
 export default function RoadmapTabs() {
   const theme = useTheme();
   const [value, setValue] = React.useState(1);
-  const classes = useStyles();
+  // const classes = useStyles();
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
   };
 
-  const handleChangeIndex = (index: number) => {
-    setValue(index);
-  };
+  // const handleChangeIndex = (index: number) => {
+  //   setValue(index);
+  // };
 
   return (
     <Box

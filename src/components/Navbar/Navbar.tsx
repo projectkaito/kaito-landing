@@ -1,9 +1,7 @@
 import React, { useRef } from "react";
 import { makeStyles } from "@mui/styles";
-import { Button, Theme, Typography } from "@mui/material";
+import { Theme, Typography } from "@mui/material";
 import logo from "src/assets/logos/logo.png";
-import { useNavigate } from "react-router-dom";
-import clsx from "clsx";
 import BurgerMenu from "src/components/BurgerMenu/BurgerMenu";
 import { scrollIntoView } from "src/utils";
 
@@ -184,15 +182,7 @@ const max = window.innerHeight / 2 - 75;
 
 const Navbar: React.FC<Props> = () => {
   const [scrollPosition, setScrollposition] = React.useState(0);
-  React.useLayoutEffect(() => {
-    myscrollfn(0);
-    function updatePosition() {
-      setScrollposition(window.scrollY);
-      myscrollfn(window.scrollY);
-    }
-    window.addEventListener("scroll", updatePosition);
-    return () => window.removeEventListener("scroll", updatePosition);
-  }, []);
+  const classes = useStyles();
 
   const logoRef = useRef<HTMLImageElement | null>(null);
   const NavItemsRef = useRef<HTMLImageElement | null>(null);
@@ -202,26 +192,29 @@ const Navbar: React.FC<Props> = () => {
     // let
   }, [scrollPosition]);
 
-  function myscrollfn(scrollPosition: number) {
-    let percentage = (scrollPosition / max) * 50;
-    if (percentage > 50) percentage = 50;
+  const myscrollfn = React.useCallback(
+    (scrollPosition: number) => {
+      let percentage = (scrollPosition / max) * 50;
+      if (percentage > 50) percentage = 50;
 
-    if (logoRef.current) {
-      logoRef.current.style.transform = `translateX(calc(50vw - 50% - ${percentage}vw + ${percentage}% ))`;
-      if (percentage > 49 && containerRef.current) {
-        containerRef.current.classList.add(classes.containerScrolled);
-        logoRef.current.style.marginLeft = "30px";
-      } else if (containerRef.current) {
-        containerRef.current.classList.remove(classes.containerScrolled);
-        logoRef.current.style.marginLeft = "0px";
+      if (logoRef.current) {
+        logoRef.current.style.transform = `translateX(calc(50vw - 50% - ${percentage}vw + ${percentage}% ))`;
+        if (percentage > 49 && containerRef.current) {
+          containerRef.current.classList.add(classes.containerScrolled);
+          logoRef.current.style.marginLeft = "30px";
+        } else if (containerRef.current) {
+          containerRef.current.classList.remove(classes.containerScrolled);
+          logoRef.current.style.marginLeft = "0px";
+        }
       }
-    }
-    if (NavItemsRef.current) {
-      NavItemsRef.current.style.transform = `translateX(calc(50vw - 50% + ${percentage}vw - ${percentage}% ))`;
-      if (percentage > 10) NavItemsRef.current.style.opacity = "1";
-      else NavItemsRef.current.style.opacity = "0";
-    }
-  }
+      if (NavItemsRef.current) {
+        NavItemsRef.current.style.transform = `translateX(calc(50vw - 50% + ${percentage}vw - ${percentage}% ))`;
+        if (percentage > 10) NavItemsRef.current.style.opacity = "1";
+        else NavItemsRef.current.style.opacity = "0";
+      }
+    },
+    [logoRef, NavItemsRef, containerRef, classes.containerScrolled]
+  );
 
   const links = [
     ["About", "about"],
@@ -230,14 +223,20 @@ const Navbar: React.FC<Props> = () => {
     ["Contact", "contact"],
   ];
 
-  const navigate = useNavigate();
-
   const linkClicked = (id: string) => {
     // Scroll to element with id
     scrollIntoView(id);
   };
 
-  const classes = useStyles();
+  React.useLayoutEffect(() => {
+    myscrollfn(0);
+    function updatePosition() {
+      setScrollposition(window.scrollY);
+      myscrollfn(window.scrollY);
+    }
+    window.addEventListener("scroll", updatePosition);
+    return () => window.removeEventListener("scroll", updatePosition);
+  }, [myscrollfn]);
   return (
     <div
       className={classes.container}

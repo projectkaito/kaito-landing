@@ -2,12 +2,10 @@ import React from "react";
 import { Route, Routes as Switch } from "react-router-dom";
 import Home from "src/pages/Home/Home";
 import Navbar from "src/components/Navbar/Navbar";
-import Footer from "src/components/Footer/Footer";
 import NotFound from "src/pages/NotFound/NotFound";
 import { makeStyles } from "@mui/styles";
 // import backgroundImage from "src/assets/images/gif.webm";
 // import backgroundImage from "src/assets/images/bg.gif";
-import zIndex from "@mui/material/styles/zIndex";
 import { Theme } from "@mui/material";
 import Animation from "src/assets/images/gif.webm";
 

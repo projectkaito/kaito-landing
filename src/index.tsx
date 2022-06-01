@@ -8,7 +8,6 @@ import { ThemeProvider } from "@mui/material/styles";
 import { StyledEngineProvider } from "@mui/material/styles";
 import { Provider } from "react-redux";
 import store from "./state";
-import Logo from "src/assets/logos/logo.png";
 
 ReactDOM.render(
   <React.StrictMode>

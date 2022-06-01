@@ -1,6 +1,6 @@
 import React from "react";
 import { makeStyles } from "@mui/styles";
-import { Container, Grid, Theme, Typography } from "@mui/material";
+import { Container, Grid, Theme } from "@mui/material";
 import TeamMemberCard from "src/components/TeamMemberCard/TeamMemberCard";
 import Jake from "src/assets/images/team/jake.png";
 import Tobi from "src/assets/images/team/tobi.png";

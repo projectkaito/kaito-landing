@@ -1,9 +1,7 @@
 import React from "react";
-import { Theme, List, ListItem, useTheme, Drawer, ListItemText, IconButton } from "@mui/material";
+import { Theme, List, ListItem, useTheme, Drawer, ListItemText } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import Burger from "react-css-burger";
-import { useNavigate } from "react-router-dom";
-import { Remove } from "@mui/icons-material";
 import clsx from "clsx";
 import { scrollIntoView } from "src/utils";
 
@@ -38,7 +36,6 @@ type Anchor = "top" | "left" | "bottom" | "right";
 const BurgerMenu: React.FC<Props> = ({ links }) => {
   const classes = useStyles();
   const theme = useTheme();
-  const navigate = useNavigate();
   const [state, setState] = React.useState({
     top: false,
     left: false,

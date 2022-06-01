@@ -1,13 +1,8 @@
 import React from "react";
 import { makeStyles } from "@mui/styles";
-import { Container, Theme, Typography } from "@mui/material";
-import rocketImage from "src/assets/images/rocketImage.png";
-import roadmap from "src/assets/images/roadmap.png";
-import boy from "src/assets/images/boy.png";
-import crown from "src/assets/images/crown.png";
-import music11 from "src/assets/images/music11.png";
+import { Container, Theme } from "@mui/material";
 import RoadmapContent from "./RoadmapContent";
-import roadmapData, { Roadmap } from "./roadmapData";
+import { Roadmap } from "./roadmapData";
 import { fakeEncrypter } from "src/utils";
 
 const useStyles = makeStyles((theme: Theme) => ({

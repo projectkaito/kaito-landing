@@ -6,7 +6,6 @@ import RoadmapTabs from "./components/RoadmapTabs";
 import Footer from "src/components/Footer/Footer";
 import TeamMembers from "./components/TeamMembers";
 import { RandomReveal } from "react-random-reveal";
-import clsx from "clsx";
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {},
@@ -78,7 +77,7 @@ const Home: React.FC<Props> = () => {
           </Grid>
           <Grid item md={7}>
             {/* <div className={classes.rightContent}> */}
-            <img style={{ width: "100%" }} src={nftImage} alt="nft image" />
+            <img style={{ width: "100%" }} src={nftImage} alt="nft" />
             {/* </div> */}
           </Grid>
         </Grid>

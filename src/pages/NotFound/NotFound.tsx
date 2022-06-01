@@ -1,5 +1,5 @@
 import React from "react";
-import { Theme, Typography } from "@mui/material";
+import { Theme } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import Gif404 from "src/assets/images/404.gif";
 
@@ -21,7 +21,7 @@ const NotFound: React.FC<Props> = () => {
 
   return (
     <div className={classes.root}>
-      <img src={Gif404} className={classes.img} />
+      <img src={Gif404} className={classes.img} alt="" />
     </div>
   );
 };
