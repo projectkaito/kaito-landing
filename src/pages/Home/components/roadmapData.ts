@@ -144,7 +144,7 @@ const roadmapData: RoadmapsData = {
         title: "2023Q3",
         description: "Merch Launch",
         image: require("src/assets/images/rocket2.png"),
-        imageTransform: "scale(0.8) translateY(-20%) translateX(30%)",
+        imageTransform: "scale(0.8) translateY(-20%) translateX(20%)",
         x: 80,
         y: 70,
       },

@@ -4,6 +4,7 @@ import { Container, Theme } from "@mui/material";
 import RoadmapContent from "./RoadmapContent";
 import { Roadmap } from "./roadmapData";
 import { fakeEncrypter } from "src/utils";
+import { RandomReveal } from "react-random-reveal";
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
@@ -69,7 +70,20 @@ const RoadmapComp: React.FC<Props> = ({ bg, data }) => {
           <RoadmapContent
             key={i}
             position={item.title}
-            description={fakeEncrypter(item.description)}
+            // @ts-ignore
+            description={
+              i < data.length / 2 ? (
+                <RandomReveal
+                  characters={item.description!}
+                  isPlaying
+                  duration={2}
+                  revealDuration={0.5}
+                  onComplete={() => ({ shouldRepeat: true, delay: 3 })}
+                />
+              ) : (
+                fakeEncrypter(item.description)
+              )
+            }
             x={item.x}
             y={item.y}
             image={item.image}

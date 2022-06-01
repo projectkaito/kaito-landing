@@ -45,7 +45,7 @@ interface Props {
   image?: string;
   rank?: string | number;
   position?: string;
-  description?: string;
+  description?: string | Element;
   style?: React.CSSProperties | undefined;
   className?: string;
   imageDirection?: "left" | "right";
