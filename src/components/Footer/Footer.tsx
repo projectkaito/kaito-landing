@@ -11,9 +11,10 @@ import { INSTAGRAM, TWITTER } from "src/config/constants";
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
+    position: "relative",
     height: "100vh",
-    maxHeight: 1920,
-    background: "radial-gradient(ellipse at 50% 130%, rgba(50, 0, 26, 1) 15%, rgba(2, 0, 36, 1) 100%)",
+    // maxHeight: 1920,
+    // background: "radial-gradient(ellipse at 50% 130%, rgba(50, 0, 26, 0.5) 15%, rgba(2, 0, 36, 0.5) 100%)",
     backgroundAttachment: "fixed",
     // background: "radial-gradient(ellipse at 50% 100%, rgba(50,0,26,1) 29%, rgba(2,0,36,1) 100%)",
   },
@@ -29,6 +30,16 @@ const useStyles = makeStyles((theme: Theme) => ({
       transform: "scale(1.1)",
     },
   },
+  canvas: {
+    width: "100%",
+    height: "100%",
+    position: "absolute",
+    top: 0,
+    left: 0,
+    display: "block",
+    zIndex: -1,
+    opacity: 0.7,
+  },
 }));
 
 interface Props {
@@ -38,9 +49,66 @@ interface Props {
 
 const Footer: React.FC<Props> = ({ style, id }) => {
   const classes = useStyles();
+  const ref = React.useRef<HTMLCanvasElement>(null);
+
+  const startAnimate = () => {
+    if (!ref.current) return;
+    let c = ref.current;
+    var ctx = c.getContext("2d");
+    //making the canvas full screen
+    c.height = window.innerHeight;
+    c.width = window.innerWidth;
+    var matrix: string | string[] =
+      "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ123456789@#$%^&*()*&^%+-/~{[|`]}";
+    //converting the string into an array of single characters
+    matrix = matrix.split("");
+
+    var font_size = 10;
+    var columns = c.width / font_size; //number of columns for the rain
+    //an array of drops - one per column
+    var drops: number[] = [];
+    //x below is the x coordinate
+    //1 = y co-ordinate of the drop(same for every drop initially)
+    for (var x = 0; x < columns; x++) drops[x] = 1;
+    //drawing the characters
+    function draw() {
+      if (!ctx) return;
+      //Black BG for the canvas
+      //translucent BG to show trail
+      ctx.fillStyle = "rgba(0, 0, 0, 0.04)";
+      ctx.fillRect(0, 0, c.width, c.height);
+
+      ctx.fillStyle = "#f4427d"; //green text
+      ctx.font = font_size + "px arial";
+      //looping over drops
+      for (var i = 0; i < drops.length; i++) {
+        //a random chinese character to print
+        var text = matrix[Math.floor(Math.random() * matrix.length)];
+        //x = i*font_size, y = value of drops[i]*font_size
+        ctx.fillText(text, i * font_size, drops[i] * font_size);
+
+        //sending the drop back to the top randomly after it has crossed the screen
+        //adding a randomness to the reset to make the drops scattered on the Y axis
+        if (drops[i] * font_size > c.height && Math.random() > 0.975) drops[i] = 0;
+
+        //incrementing Y coordinate
+        drops[i]++;
+      }
+    }
+    return draw;
+  };
+
+  React.useEffect(() => {
+    let draw = startAnimate();
+    let int = setInterval(draw!, 35);
+    return () => {
+      clearInterval(int);
+    };
+  }, []);
 
   return (
     <div className={classes.root} style={style} id={id}>
+      <canvas ref={ref} className={classes.canvas}></canvas>
       <div className="center" style={{ height: "100%" }}>
         <div style={{ width: "100%" }}>
           <div className="center">
