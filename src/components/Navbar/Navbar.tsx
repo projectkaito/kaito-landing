@@ -217,7 +217,7 @@ const Navbar: React.FC<Props> = () => {
   );
 
   const links = [
-    ["About", "about"],
+    // ["About", "about"],
     ["Roadmap", "roadmap"],
     ["Team", "team"],
     ["Contact", "contact"],
