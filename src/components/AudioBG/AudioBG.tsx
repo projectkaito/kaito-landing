@@ -42,18 +42,24 @@ const options = {};
 const AudioBG: React.FC<Props> = () => {
   const classes = useStyles();
   const ref = React.useRef<HTMLAudioElement>(null);
+  const btnRef = React.useRef<HTMLButtonElement>(null);
 
   React.useEffect(() => {
     // var audio = new Audio(AudioBg);
     // audio.play();
+    // btnRef.current?.click();
     ref?.current?.play();
+    // ref?.current?.click();
     window.addEventListener("scroll", () => ref?.current?.play());
-  }, [ref]);
+  }, [ref, btnRef]);
 
   return (
     <>
       {/* <ReactJkMusicPlayer {...options} /> */}
-      <ReactAudioPlayer src={AudioBg} autoPlay={true} controls={false} />
+      {/* <ReactAudioPlayer src={AudioBg} autoPlay={true} controls={false} /> */}
+      {/* <button ref={btnRef} onClick={() => alert("cls")}>
+        asd
+      </button> */}
       <audio ref={ref} autoPlay loop src={AudioBg} />
       <div className={classes.root}>
         {/* <div className={classes.bar}></div>
