@@ -72,7 +72,7 @@ const RoadmapComp: React.FC<Props> = ({ bg, data }) => {
             position={item.title}
             // @ts-ignore
             description={
-              i < data.length / 2 ? (
+              !item.encrypted && i < data.length / 2 - 1 ? (
                 <RandomReveal
                   characters={item.description!}
                   isPlaying

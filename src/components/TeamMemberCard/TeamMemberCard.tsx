@@ -5,6 +5,7 @@ import TwitterIcon from "@mui/icons-material/Twitter";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import ImdbImg from "src/assets/icons/imdb.png";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import { RandomReveal } from "react-random-reveal";
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
@@ -64,9 +65,24 @@ const TeamMemberCard: React.FC<Props> = ({ image, name, designation, instagram, 
       <div className={classes.contentContainer}>
         <div className={classes.contentWrapper}>
           <Typography variant="h6" color="primary" align="left" className={classes.title}>
-            {name}
+            {name!}
+            {/* <RandomReveal
+              characters={name!}
+              isPlaying
+              duration={2}
+              revealDuration={0.5}
+              onComplete={() => ({ shouldRepeat: true, delay: 3 })}
+            /> */}
           </Typography>
-          <Typography>{designation}</Typography>
+          <Typography>
+            <RandomReveal
+              characters={designation!}
+              isPlaying
+              duration={2}
+              revealDuration={0.5}
+              onComplete={() => ({ shouldRepeat: true, delay: 3 })}
+            />
+          </Typography>
         </div>
         <div>
           {instagram && (

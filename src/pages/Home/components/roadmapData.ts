@@ -6,6 +6,7 @@ export interface Roadmap {
   y?: number;
   imageDirection?: "left" | "right";
   imageTransform?: string;
+  encrypted?: boolean;
 }
 
 export interface RoadmapsData {
@@ -103,11 +104,12 @@ const roadmapData: RoadmapsData = {
     data: [
       {
         title: "June",
-        description: "Mint Staking Commencies",
+        description: "Mint Staking Commences",
         image: require("src/assets/images/clock.png"),
         imageDirection: "right",
         x: 30,
         y: 5,
+        encrypted: true,
       },
       {
         title: "2022Q3",
