@@ -8,6 +8,7 @@ import { makeStyles } from "@mui/styles";
 // import backgroundImage from "src/assets/images/bg.gif";
 import { Theme } from "@mui/material";
 import Animation from "src/assets/images/gif.webm";
+import AudioBG from "./components/AudioBG/AudioBG";
 
 const useStyle = makeStyles((theme: Theme) => ({
   mainContainer: {
@@ -80,7 +81,7 @@ const Routes: React.FC<Props> = () => {
     <div className={classes.mainContainer} style={{}}>
       {/* <div className={classes.img}></div> */}
       <video ref={videoRef} autoPlay={true} loop={true} src={Animation} muted className={classes.vid} />
-
+      <AudioBG />
       <Switch>
         <Route
           path="/"
