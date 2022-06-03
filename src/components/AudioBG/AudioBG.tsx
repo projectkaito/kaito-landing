@@ -1,7 +1,8 @@
 import React from "react";
 import { makeStyles } from "@mui/styles";
 import { Theme } from "@mui/material";
-import AudioBg from "src/assets/audio/bg.mp3";
+// import AudioBg from "src/assets/audio/bg.mp3";
+import AudioBg from "src/assets/audio/audio.mp3";
 import Silence from "src/assets/audio/silence.mp3";
 import PlayCircleFilledIcon from "@mui/icons-material/PlayCircleFilled";
 import RecordImg from "src/assets/images/record.png";
