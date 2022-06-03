@@ -98,7 +98,7 @@ const Home: React.FC<Props> = () => {
           </div>
         </div>
       </Container>
-      <Footer style={{ paddingTop: "20vh", marginTop: "-20vh", zIndex: -1 }} id="contact" />
+      <Footer style={{ paddingTop: "20vh", marginTop: "-20vh" }} id="contact" />
     </div>
   );
 };
