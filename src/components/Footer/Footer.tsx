@@ -108,7 +108,7 @@ const Footer: React.FC<Props> = ({ style, id }) => {
   return (
     <div className={classes.root} style={style} id={id}>
       <canvas ref={ref} className={classes.canvas}></canvas>
-      <div className="center" style={{ height: "100%" }}>
+      <div className="center" style={{ height: "100%", pointerEvents: "all" }}>
         <div style={{ width: "100%" }}>
           <div className="center">
             <img src={logo} alt="Kaito" />
