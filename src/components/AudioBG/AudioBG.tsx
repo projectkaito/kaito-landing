@@ -38,7 +38,19 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   record: {
     width: 50,
+    position: "relative",
     borderRadius: "360px",
+    "&:before": {
+      width: 50,
+      height: 50,
+      zIndex: -1,
+      content: '""',
+      borderRadius: 360,
+      position: "absolute",
+      top: 0,
+      left: 0,
+      background: "rgba(211,22,94,0.2)",
+    },
   },
   recordContainer: {
     position: "fixed",
@@ -48,6 +60,22 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   rotate: {
     animation: "$rotate 2s infinite linear",
+
+    "&:before": {
+      animation: "$grow 1.2s infinite ease-in-out",
+    },
+  },
+  "@keyframes grow": {
+    from: {
+      transform: "scale(1)",
+      background: "rgba(211,22,94,0.8)",
+    },
+    to: {
+      transform: "scale(1.8)",
+      background: "rgba(211,22,94,0)",
+
+      // transform: "rotate(360deg)",
+    },
   },
   "@keyframes rotate": {
     from: {
@@ -85,15 +113,10 @@ const AudioBG: React.FC<Props> = () => {
 
   return (
     <>
-      {/* <ReactJkMusicPlayer {...options} /> */}
-      {/* <ReactAudioPlayer src={AudioBg} autoPlay={true} controls={false} /> */}
-      {/* <button ref={btnRef} onClick={() => alert("cls")}>
-        asd
-      </button> */}
-      {/* @ts-ignore */}
-
       <div className={classes.recordContainer}>
-        <img src={RecordImg} className={clsx(classes.record, isPlaying && classes.rotate)} />
+        <div className={clsx(classes.record, isPlaying && classes.rotate)}>
+          <img src={RecordImg} width="100%" height="100%" style={{ borderRadius: 360 }} />
+        </div>
         {/* <PlayCircleFilledIcon className={classes.icon} fontSize="large" /> */}
         {isPlaying ? (
           <PauseIcon onClick={handlePause} fontSize="large" className={classes.icon} />
@@ -101,7 +124,7 @@ const AudioBG: React.FC<Props> = () => {
           <PlayArrowIcon onClick={handlePlay} fontSize="large" className={classes.icon} />
         )}
       </div>
-      <audio style={{ display: "none" }} src={AudioBg} autoPlay ref={ref} />
+      <audio style={{ display: "none" }} src={AudioBg} loop ref={ref} />
       <div className={classes.root}>
         {/* <div className={classes.bar}></div>
       <div className={classes.bar} style={{ animationDelay: "1", animationDuration: "1" }}></div>
