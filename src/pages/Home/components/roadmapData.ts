@@ -68,7 +68,7 @@ const roadmapData: RoadmapsData = {
         title: "2022Q3",
         description: "Kaito Anime Show Trailer Released",
         image: require("src/assets/images/avatar.png"),
-
+        encrypted: true,
         imageDirection: "left",
         x: 85,
         y: 25,
