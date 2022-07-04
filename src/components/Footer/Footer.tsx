@@ -7,7 +7,7 @@ import Instagram from "src/assets/images/icons/instagram.png";
 import Twitter from "src/assets/images/icons/twitter.png";
 import Opensea from "src/assets/images/icons/opensea.png";
 import { INSTAGRAM, TWITTER } from "src/config/constants";
-
+import BusinessIcon from "@mui/icons-material/Business";
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
     position: "relative",
@@ -132,6 +132,10 @@ const Footer: React.FC<Props> = ({ style, id }) => {
           </div>
           <Typography color="secondary" align="center" style={{ marginTop: 50 }}>
             © Project Kaito 2022 | All Rights Reserved
+          </Typography>
+          <Typography color="secondary" align="center" style={{ marginTop: 5 }}>
+            <BusinessIcon fontSize="small" style={{ transform: "translate(-5px,3px)" }} /> 584 Castro Street #3041 San
+            Francisco, CA 94114
           </Typography>
         </div>
       </div>

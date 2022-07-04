@@ -27,7 +27,7 @@ const TeamMembers: React.FC<Props> = () => {
               name="Michael Chasteen"
               designation="Founder"
               instagram="https://www.instagram.com/projectkaitonft/"
-              imdb="https://www.imdb.com/name/nm11955761/"
+              twitter="https://www.twitter.com/realmchasteen"
             />
           </Grid>
           <Grid item xs={12} sm={6} md={4}>
