@@ -34,6 +34,7 @@ const roadmapData: RoadmapsData = {
         image: require("src/assets/images/heart.png"),
         imageDirection: "left",
         x: 50,
+        encrypted: true,
       },
       {
         title: "2022Q4",
@@ -62,6 +63,7 @@ const roadmapData: RoadmapsData = {
         image: require("src/assets/images/mic.png"),
         imageDirection: "right",
         x: 18,
+        encrypted: true,
         y: 7,
       },
       {
@@ -117,6 +119,7 @@ const roadmapData: RoadmapsData = {
         image: require("src/assets/images/image.png"),
         x: 75,
         y: 15,
+        encrypted: true,
       },
       {
         title: "2022Q4",
@@ -125,6 +128,7 @@ const roadmapData: RoadmapsData = {
         imageDirection: "right",
         x: -30,
         y: 25,
+        encrypted: true,
       },
       {
         title: "2023Q1",
