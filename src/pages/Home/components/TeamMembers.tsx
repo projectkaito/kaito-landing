@@ -26,7 +26,7 @@ const TeamMembers: React.FC<Props> = () => {
               image={Kaito}
               name="Michael Chasteen"
               designation="Founder"
-              instagram="https://www.instagram.com/projectkaitonft/"
+              instagram="https://www.instagram.com/realmichaelchasteen/"
               twitter="https://www.twitter.com/realmchasteen"
             />
           </Grid>
