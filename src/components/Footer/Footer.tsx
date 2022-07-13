@@ -6,6 +6,7 @@ import logo from "src/assets/logos/logo.png";
 import Instagram from "src/assets/images/icons/instagram.png";
 import Twitter from "src/assets/images/icons/twitter.png";
 import Opensea from "src/assets/images/icons/opensea.png";
+import discord from "src/assets/images/icons/discord.png";
 import { INSTAGRAM, TWITTER } from "src/config/constants";
 import BusinessIcon from "@mui/icons-material/Business";
 const useStyles = makeStyles((theme: Theme) => ({
@@ -128,6 +129,9 @@ const Footer: React.FC<Props> = ({ style, id }) => {
             </a> */}
             <a href="#" target="_blank" rel="noreferrer">
               <img src={Opensea} alt="opensea" />
+            </a>
+            <a href="http://discord.gg/projectkaito" target="_blank" rel="noreferrer">
+              <img src={discord} alt="discord" />
             </a>
           </div>
           <Typography color="secondary" align="center" style={{ marginTop: 50 }}>
