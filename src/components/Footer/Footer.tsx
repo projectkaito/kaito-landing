@@ -21,11 +21,13 @@ const useStyles = makeStyles((theme: Theme) => ({
   socialsContainer: {
     display: "flex",
     justifyContent: "space-between",
+    alignItems: "center",
     flexWrap: "wrap",
     width: "100%",
     maxWidth: 300,
     margin: "auto",
     marginTop: "10%",
+    transition: "all 0.5s ease",
     "& a:hover": {
       transform: "scale(1.1)",
     },
@@ -39,6 +41,9 @@ const useStyles = makeStyles((theme: Theme) => ({
     display: "block",
     zIndex: -1,
     opacity: 0.7,
+  },
+  icons: {
+    width: "49px",
   },
 }));
 
@@ -119,19 +124,19 @@ const Footer: React.FC<Props> = ({ style, id }) => {
               <img src={Facebook} alt="facebook" />
             </a> */}
             <a href={INSTAGRAM} target="_blank" rel="noreferrer">
-              <img src={Instagram} alt="instagram" />
+              <img src={Instagram} style={{ zoom: "0.9" }} alt="instagram" className={classes.icons} />
             </a>
             <a href={TWITTER} target="_blank" rel="noreferrer">
-              <img src={Twitter} alt="twitter" />
+              <img src={Twitter} style={{ zoom: "0.9" }} alt="twitter" className={classes.icons} />
             </a>
             {/* <a href="#" target="_blank" rel="noreferrer">
               <img src={Youtube} alt="youtube" />
             </a> */}
-            <a href="#" target="_blank" rel="noreferrer">
-              <img src={Opensea} alt="opensea" />
+            <a href="https://opensea.io/collection/projectkaito" target="_blank" rel="noreferrer">
+              <img src={Opensea} alt="opensea" className={classes.icons} />
             </a>
             <a href="http://discord.gg/projectkaito" target="_blank" rel="noreferrer">
-              <img src={discord} alt="discord" />
+              <img src={discord} alt="discord" className={classes.icons} />
             </a>
           </div>
           <Typography color="secondary" align="center" style={{ marginTop: 50 }}>
