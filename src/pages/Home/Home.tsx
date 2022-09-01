@@ -67,7 +67,7 @@ const Home: React.FC<Props> = () => {
           <Grid item md={6}>
             <div className={classes.leftContent}>
               <Typography variant="h1" className={classes.title}>
-                Welcome to the{" "}
+                Welcome to the
                 <RandomReveal
                   characters={"Future"}
                   isPlaying
@@ -81,7 +81,7 @@ const Home: React.FC<Props> = () => {
                 variant="contained"
                 color="primary"
               >
-                Mint Now
+                Mint kaito
               </Button>
               {/* <Typography variant="body1" style={{ marginTop: 10 }}>
                 There’s no better time than now. There’s no better place than here. Project Kaito is on a mission to end
