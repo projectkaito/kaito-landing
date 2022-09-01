@@ -6,7 +6,7 @@ import RoadmapTabs from "./components/RoadmapTabs";
 import Footer from "src/components/Footer/Footer";
 import TeamMembers from "./components/TeamMembers";
 import { RandomReveal } from "react-random-reveal";
-
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 const useStyles = makeStyles((theme: Theme) => ({
   root: {},
   leftContent: {
@@ -79,7 +79,15 @@ const Home: React.FC<Props> = () => {
               <Button
                 onClick={() => window.open("https://www.mint.projectkaito.com/", "_blank")}
                 variant="contained"
+                sx={{ mt: 2 }}
                 color="primary"
+                size="large"
+                endIcon={<ArrowForwardIcon fontSize="large" />}
+                style={{
+                  borderRadius: 3,
+                  width: 200,
+                  height: 50,
+                }}
               >
                 Mint Now
               </Button>
