@@ -77,7 +77,7 @@ const Home: React.FC<Props> = () => {
                 />
               </Typography>
               <Button
-                onClick={() => window.open("https://www.mint.projectkaito.com/", "_blank")}
+                onClick={() => window.open("https://opensea.io/collection/projectkaito", "_blank")}
                 variant="contained"
                 sx={{ mt: 2 }}
                 color="primary"
@@ -89,7 +89,7 @@ const Home: React.FC<Props> = () => {
                   height: 50,
                 }}
               >
-                Mint kaito
+                BUY NOW
               </Button>
               {/* <Typography variant="body1" style={{ marginTop: 10 }}>
                 There’s no better time than now. There’s no better place than here. Project Kaito is on a mission to end
