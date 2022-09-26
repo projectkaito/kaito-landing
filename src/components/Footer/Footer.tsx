@@ -7,7 +7,7 @@ import Instagram from "src/assets/images/icons/instagram.png";
 import Twitter from "src/assets/images/icons/twitter.png";
 import Opensea from "src/assets/images/icons/opensea.png";
 import discord from "src/assets/images/icons/discord.png";
-import { INSTAGRAM, TWITTER } from "src/config/constants";
+import { DISCORD, INSTAGRAM, OPENSEA, TWITTER } from "src/config/constants";
 import BusinessIcon from "@mui/icons-material/Business";
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
@@ -132,10 +132,10 @@ const Footer: React.FC<Props> = ({ style, id }) => {
             {/* <a href="#" target="_blank" rel="noreferrer">
               <img src={Youtube} alt="youtube" />
             </a> */}
-            <a href="https://opensea.io/collection/projectkaito" target="_blank" rel="noreferrer">
+            <a href={OPENSEA} target="_blank" rel="noreferrer">
               <img src={Opensea} alt="opensea" className={classes.icons} />
             </a>
-            <a href="http://discord.gg/projectkaito" target="_blank" rel="noreferrer">
+            <a href={DISCORD} target="_blank" rel="noreferrer">
               <img src={discord} alt="discord" className={classes.icons} />
             </a>
           </div>
